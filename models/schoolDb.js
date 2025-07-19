@@ -8,7 +8,7 @@ const userSchema = new Schema(
     name: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, rquired: true },
-    isActive: { type: Boolea, default: true },
+    isActive: { type: Boolean, default: true },
     role: {
       type: String,
       enum: ["admin", "teacher", "parent"],

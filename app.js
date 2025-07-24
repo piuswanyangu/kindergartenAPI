@@ -20,6 +20,10 @@ app.use(express.json());
 const classroomRoutes=require('./routes/classroom');
 app.use("/api/classrooms",classroomRoutes)
 
+// import teachers route
+const teachersRoutes = require("./routes/teacher")
+app.use("/api/teachers", teachersRoutes)
+
 // import the login router for the admin
 const loginRoutes = require("./routes/login");
 app.use("/api/auth",loginRoutes)

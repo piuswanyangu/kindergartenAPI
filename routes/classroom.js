@@ -18,6 +18,9 @@ router.get("/",auth,classroomController.getAllClassrooms)
 // below is the route for fetching a single classroom
 router.get("/:id",auth, classroomController.getClassroomById)
 
+// below is an update route
+router.put("/:id",classroomController.updateClassroom)
+
 // below is the end point to delete classroom 
 router.delete(
   "/:id",

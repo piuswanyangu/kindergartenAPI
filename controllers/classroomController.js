@@ -61,6 +61,31 @@ exports.getClassroomById = async (req,res) => {
     }
 }
 
+// ==============
+// update a classroom
+// below is the end point
+exports.updateClassroom = async (req, res) => {
+  try {
+    const updatedClassroom = await Classroom.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true } // runValidators is useful on updates
+    );
+
+    if (!updatedClassroom) {
+      return res.status(404).json({ message: "Class not found. Check id." });
+    }
+
+    return res.json(updatedClassroom);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Error updating classroom", error: error.message });
+  }
+};
+
+
+
 //  delete classroom based on id
 exports.deleteClassroom = async (req,res) => {
     try {

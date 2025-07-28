@@ -21,6 +21,9 @@ app.use(express.json());
 const classroomRoutes=require('./routes/classroom');
 app.use("/api/classrooms",classroomRoutes)
 
+// specify the parents routes
+const parentRoutes = require("./routes/parent")
+app.use("/api/parents",parentRoutes)
 
 // import the assignment routes
 const assignmentRoutes = require('./routes/assignment')

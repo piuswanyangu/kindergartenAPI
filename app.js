@@ -9,6 +9,7 @@ require('dotenv').config()
 const cors=require('cors');
 
 
+
 // create an app based on express
 const app = express();
 app.use(cors());
@@ -19,6 +20,11 @@ app.use(express.json());
 // import classroom routes
 const classroomRoutes=require('./routes/classroom');
 app.use("/api/classrooms",classroomRoutes)
+
+
+// import the assignment routes
+const assignmentRoutes = require('./routes/assignment')
+app.use("/api/assignments",assignmentRoutes)
 
 // import teachers route
 const teachersRoutes = require("./routes/teacher")

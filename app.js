@@ -25,6 +25,10 @@ app.use("/api/classrooms",classroomRoutes)
 const parentRoutes = require("./routes/parent")
 app.use("/api/parents",parentRoutes)
 
+
+// specify the routes for fetching students details
+const studentRoutes = require("./routes/student")
+app.use("/api/students",studentRoutes)
 // import the assignment routes
 const assignmentRoutes = require('./routes/assignment')
 app.use("/api/assignments",assignmentRoutes)

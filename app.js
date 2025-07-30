@@ -45,6 +45,10 @@ app.use("/api/auth",loginRoutes)
 const adminDashboardRoutes = require("./routes/dashboardAdmin")
 app.use("/api/dashboardAdmin", adminDashboardRoutes);
 
+// specify the routes to the teacher dashboard
+const teacherDashboardRoutes = require("./routes/statsTeacher")
+app.use("/api/teacherDashboard",teacherDashboardRoutes)
+
 
 // test/establish the connection to the database using the link specified inside of the dotenv file
 mongoose.connect(process.env.MONGO_URI)

@@ -6,3 +6,5 @@ const{auth,authorizeRoles}= require("../middleware/auth")
 
 // get teacher stats
 router.get("/",statsTeacher.getTeacherStas)
+
+module.exports = router;

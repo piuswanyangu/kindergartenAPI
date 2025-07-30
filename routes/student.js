@@ -3,6 +3,8 @@ const express = require("express")
 const router = express.Router()
 const studentController = require('../controllers/studentsController')
 
+
+const {auth,authorizeRoles}= require("../middleware/auth")
 // below is a route to add new student
 router.post("/",studentController.uploadStudentPhoto, studentController.addStudent)
 
@@ -15,6 +17,9 @@ router.get("/:id", studentController.getStudentById)
 
 // below is trhe route to update the details of the students
 router.put("/:id",studentController.updateSudentDetails)
+
+// delete student
+router.delete("/:id",studentController.deleteStudent)
 
 // export the module
 module.exports = router;

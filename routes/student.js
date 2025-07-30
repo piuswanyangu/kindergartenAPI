@@ -4,11 +4,17 @@ const router = express.Router()
 const studentController = require('../controllers/studentsController')
 
 // below is a route to add new student
-router.post("/",studentController.addStudent)
+router.post("/",studentController.uploadStudentPhoto, studentController.addStudent)
 
 // below is the route to get all students
 router.get("/",studentController.getAllStudents)
 
+// get student by id
+router.get("/:id", studentController.getStudentById)
+
+
+// below is trhe route to update the details of the students
+router.put("/:id",studentController.updateSudentDetails)
 
 // export the module
 module.exports = router;

@@ -48,6 +48,9 @@ app.use("/api/dashboardAdmin", adminDashboardRoutes);
 // specify the routes to the teacher dashboard
 const teacherDashboardRoutes = require("./routes/statsTeacher")
 app.use("/api/teacherDashboard",teacherDashboardRoutes)
+// specify the routes to access parent dashboard stats
+const parentDashboardRoutes = require("./routes/parentDashboardStats")
+app.use("/api/parentDashboard",parentDashboardRoutes)
 
 
 // test/establish the connection to the database using the link specified inside of the dotenv file

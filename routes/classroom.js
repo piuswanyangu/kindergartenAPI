@@ -9,7 +9,7 @@ const {auth, authorizeRoles}=require("../middleware/auth")
 
 
 // adding new class router
-router.post("/",classroomController.addClassroom)
+router.post("/",auth, authorizeRoles('admin'), classroomController.addClassroom)
 
 
 // below is the route to get all classroom

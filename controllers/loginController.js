@@ -73,9 +73,11 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: "Invalid Password" });
     }
 
+    console.log("The secrete key is: ", `"${JWT_SECRET}"`);
+
     // generate jwt token(will be neede when a person tries to login)
     const token = jwt.sign({ userId: user._id, role: user.role }, JWT_SECRET, {
-      expiresIn: "3h",
+      expiresIn: "4h",
     });
 
     //  5 send a success message
@@ -89,7 +91,7 @@ exports.login = async (req, res) => {
         role: user.role,
       },
     });
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({ message: "Login Failed", error: err.message });
   }
 };

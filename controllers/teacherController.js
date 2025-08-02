@@ -77,8 +77,8 @@ exports.getTeacherById = async (req, res)=>{
         const user = await User.findById(userId).populate('teacher')
 
         // check whether he is registered in the db
-        if(!user || user.teacher){
-            return res.ststus(404).json({message:"Teacher Not Found"})
+        if(!user || !user.teacher){
+            return res.status(404).json({message:"Teacher Not Found"})
         }
         const teacher = user.teacher;
         const teacherId = teacher._id;
@@ -90,11 +90,11 @@ exports.getTeacherById = async (req, res)=>{
         const assignment = await Assignment.find({postedBy:teacherId}).populate('classroom','name')
 
         // return a response to the user
-        res.json({teacher,classroom,assignment})
+        res.json({teacher,classrooms,assignment})
 
 
     } catch(error){
-        res.status(500).json({message:"Error fetching teachers record",error:err.message})
+        res.status(500).json({message:"Error fetching teachers record",error:error.message})
     }
 }
 

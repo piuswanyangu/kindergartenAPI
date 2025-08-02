@@ -13,13 +13,13 @@ router.post("/",auth, authorizeRoles('admin'), classroomController.addClassroom)
 
 
 // below is the route to get all classroom
-router.get("/",classroomController.getAllClassrooms)
+router.get("/",auth,classroomController.getAllClassrooms)
 
 // below is the route for fetching a single classroom
 router.get("/:id",auth, classroomController.getClassroomById)
 
 // below is an update route
-router.put("/:id",classroomController.updateClassroom)
+router.put("/:id",auth,classroomController.updateClassroom)
 
 // below is the end point to delete classroom 
 router.delete(

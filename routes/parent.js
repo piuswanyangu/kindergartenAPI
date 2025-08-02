@@ -11,16 +11,21 @@ const parentController = require("../controllers/parentController")
 router.get("/",parentController.getAllParents)
 
 // add parent
-router.post("/",parentController.addParent)
+router.post("/", auth, authorizeRoles('admin'), parentController.addParent);
 
 // fetch a parent by use of Id
 router.get("/:id",parentController.getParentById)
 
 // update the details of the parent by use of d
-router.put('/:id',parentController.updateParent)
+router.put('/:id',auth, authorizeRoles('admin'),parentController.updateParent)
 
 // delete tparent based on id passed
-router.delete('/:id',parentController.deleteParent);
+router.delete(
+  "/:id",
+  auth,
+  authorizeRoles("admin"),
+  parentController.deleteParent
+);
 
 
 module.exports = router;

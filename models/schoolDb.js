@@ -61,7 +61,7 @@ const studentSchema =new Schema({
     gender:{type:String},
     photo:{type:String},
     admissionNumber:{type:String,unique:true},
-    classroom:{type:mongoose.Schema.Types.ObjectId,ref:'classroom',default:true},// references a given class based on id
+    classroom:{type:mongoose.Schema.Types.ObjectId,ref:'Classroom',default:true},// references a given class based on id
     parent:{type:mongoose.Schema.Types.ObjectId,ref:'Parent'}// reference a parent based on id
 },{timestamps:true});
 

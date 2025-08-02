@@ -17,6 +17,10 @@ app.use(cors());
 // Below we allow our API to accept data inform of json format
 app.use(express.json());
 
+// import the login router for the admin
+const loginRoutes = require("./routes/login");
+app.use("/api/auth",loginRoutes)
+
 // import classroom routes
 const classroomRoutes=require('./routes/classroom');
 app.use("/api/classrooms",classroomRoutes)
@@ -37,9 +41,7 @@ app.use("/api/assignments",assignmentRoutes)
 const teachersRoutes = require("./routes/teacher")
 app.use("/api/teachers", teachersRoutes)
 
-// import the login router for the admin
-const loginRoutes = require("./routes/login");
-app.use("/api/auth",loginRoutes)
+
 
 // specify the route sto the admindashboard
 const adminDashboardRoutes = require("./routes/dashboardAdmin")

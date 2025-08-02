@@ -9,11 +9,14 @@ const JWT_SECRET=process.env.JWT_SECRET
 const auth =(req,res,next)=>{
     // extract auth headers
     const authHeader = req.headers.authorization;
+    // console.log(authHeader)
 
     // split the  header into an array using the space
     // so far the header usually contains the keyword "bearer" concatinated with the token
     // after the split happens the "bearer" appears on index = 0 and the token appears on second index=1
-    const token = authHeader && authHeader.split('')[1];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    // console.log("My token is: ", token)
     //step 1 check whether the request sent by person contains a token or not
     if(!token){
         return res.status(401).json({message:"No token provided."})

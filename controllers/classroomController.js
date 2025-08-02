@@ -46,6 +46,7 @@ exports.getClassroomById = async (req,res) => {
         // we shall use the find by id function to do this
         // the id we shall pass it as parameter on the url
         const classroom = await Classroom.findById( req.params.id )
+        .populate('teacher')
 
         console.log("The content of classroom is: ",classroom)
         // if the classroom is not found return a response
@@ -57,7 +58,7 @@ exports.getClassroomById = async (req,res) => {
         res.json(classroom)
         
     } catch (error) {
-        res.status(500).json({message:"Error fetching the class",error:err.message})
+        res.status(500).json({message:"Error fetching the class",error:error.message})
     }
 }
 

@@ -29,7 +29,7 @@ exports.addClassroom = async (req,res) => {
 exports.getAllClassrooms = async (req,res)=>{
     try {
         // by use of the function find we can fetch all the classrooms
-        const classrooms = await Classroom.find()
+        const classrooms = await Classroom.find().populate('teacher', 'name email phone')
 
         // return all the classrooms
         res.json(classrooms)
